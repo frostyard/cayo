@@ -82,11 +82,11 @@ mkdir -p /usr/share/cayo
 apt list --installed > /usr/share/cayo/server-packages.txt
 
 # disable services
-systemctl disable --now nfs-server
-systemctl disable --now nmbd
-systemctl disable --now samba-ad-dc
-systemctl disable --now smbd
-systemctl disable --now winbind
+systemctl disable nfs-server
+systemctl disable nmbd
+systemctl disable samba-ad-dc
+systemctl disable smbd
+systemctl disable winbind
 
 # Update build information in os-release
 sed -i "s/^BUILD_ID=.*/BUILD_ID=\"$BUILD_ID\"/" /usr/lib/os-release
