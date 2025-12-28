@@ -1,0 +1,81 @@
+#!/bin/bash
+
+set -ouex pipefail
+
+# Repository setup
+sed -i 's/main/main contrib non-free non-free-firmware/' /etc/apt/sources.list.d/*
+
+# Initial update
+apt-get update -y
+
+# install firmware packages
+echo "firmware-ipw2x00 firmware-ipw2x00/license/accepted boolean true" | debconf-set-selections
+echo "firmware-ivtv firmware-ivtv/license/accepted boolean true" | debconf-set-selections
+apt-get install -y \
+	atmel-firmware \
+	bluez-firmware \
+	dahdi-firmware-nonfree \
+	firmware-amd-graphics \
+	firmware-ast \
+	firmware-ath9k-htc \
+	firmware-atheros \
+	firmware-bnx2 \
+	firmware-bnx2x \
+	firmware-brcm80211 \
+	firmware-carl9170 \
+	firmware-cavium \
+	firmware-cirrus \
+	firmware-intel-graphics \
+	firmware-intel-misc \
+	firmware-intel-sound \
+	firmware-ipw2x00 \
+	firmware-ivtv \
+	firmware-iwlwifi \
+	firmware-libertas \
+	firmware-linux-free \
+	firmware-linux-nonfree \
+	firmware-linux \
+	firmware-marvell-prestera \
+	firmware-mediatek \
+	firmware-misc-nonfree \
+	firmware-myricom \
+	firmware-netronome \
+	firmware-netxen \
+	firmware-nvidia-graphics \
+	firmware-qlogic \
+	firmware-realtek \
+	firmware-siano \
+	firmware-sof-signed \
+	firmware-zd1211
+
+# Install Common Packages
+apt-get install -y \
+	duperemove \
+	fwupd \
+	hdparm \
+	man-db \
+	nfs-common \
+	nfs-kernel-server \
+  pipewire \
+	pciutils \
+	pcp-zeroconf \
+	openssh-client \
+	openssh-server \
+	qemu-guest-agent \
+	samba \
+	smartmontools \
+	smbclient \
+	tmux \
+	tuned \
+	tuned-ppd \
+	usbutils \
+	wireguard-tools \
+	xdg-dbus-proxy \
+	xdg-user-dirs
+
+# Get package list
+mkdir -p /usr/share/cayo
+apt list --installed > /usr/share/cayo/server-packages.txt
+
+# Update build information in os-release
+sed -i "s/^BUILD_ID=.*/BUILD_ID=\"$BUILD_ID\"/" /usr/lib/os-release
