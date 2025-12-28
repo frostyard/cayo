@@ -53,7 +53,10 @@ apt-get install -y \
 	duperemove \
 	fwupd \
 	hdparm \
+	less \
+	locales \
 	man-db \
+	nano \
 	nfs-common \
 	nfs-kernel-server \
   pipewire \
@@ -69,6 +72,7 @@ apt-get install -y \
 	tuned \
 	tuned-ppd \
 	usbutils \
+	vim \
 	wireguard-tools \
 	xdg-dbus-proxy \
 	xdg-user-dirs
@@ -76,6 +80,13 @@ apt-get install -y \
 # Get package list
 mkdir -p /usr/share/cayo
 apt list --installed > /usr/share/cayo/server-packages.txt
+
+# disable services
+systemctl disable --now nfs-server
+systemctl disable --now nmbd
+systemctl disable --now samba-ad-dc
+systemctl disable --now smbd
+systemctl disable --now winbind
 
 # Update build information in os-release
 sed -i "s/^BUILD_ID=.*/BUILD_ID=\"$BUILD_ID\"/" /usr/lib/os-release
