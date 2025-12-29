@@ -88,5 +88,11 @@ systemctl disable samba-ad-dc
 systemctl disable smbd
 systemctl disable winbind
 
+# Update os-release info
+sed -i 's/^PRETTY_NAME=.*/PRETTY_NAME="Cayo Linux"/' /usr/lib/os-release
+sed -i 's/^NAME=.*/NAME="Cayo Linux"/' /usr/lib/os-release
+sed -i 's/^ID=.*/ID="cayo"/' /usr/lib/os-release
+echo "ID_LIKE=debian" >> /usr/lib/os-release
+
 # Update build information in os-release
 sed -i "s/^BUILD_ID=.*/BUILD_ID=\"$BUILD_ID\"/" /usr/lib/os-release
