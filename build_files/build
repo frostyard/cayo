@@ -8,10 +8,15 @@ sed -i 's/main/main contrib non-free non-free-firmware/' /etc/apt/sources.list.d
 # Initial update
 apt-get update -y
 
-# install firmware packages
+# Install Backports Kernel and Firmware
+codename=$( . /etc/os-release && echo "$VERSION_CODENAME" )
+apt-get purge -y \
+  "linux-image-$(dpkg --print-architecture)"
+rm -rf /usr/lib/modules/*
 echo "firmware-ipw2x00 firmware-ipw2x00/license/accepted boolean true" | debconf-set-selections
 echo "firmware-ivtv firmware-ivtv/license/accepted boolean true" | debconf-set-selections
-apt-get install -y \
+apt-get install -y -t "${codename}-backports" \
+  "linux-image-$(dpkg --print-architecture)" \
 	atmel-firmware \
 	bluez-firmware \
 	dahdi-firmware-nonfree \
