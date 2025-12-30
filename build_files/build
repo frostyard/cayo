@@ -27,8 +27,10 @@ apt list --installed |grep linux
 echo "firmware-ipw2x00 firmware-ipw2x00/license/accepted boolean true" | debconf-set-selections
 echo "firmware-ivtv firmware-ivtv/license/accepted boolean true" | debconf-set-selections
 apt-get install -y -t "${codename}-backports" \
-  "linux-image-$(dpkg --print-architecture)" \
 	dracut \
+	linux-cpupower \
+	"linux-image-$(dpkg --print-architecture)" \
+	linux-perf \
 	atmel-firmware \
 	bluez-firmware \
 	dahdi-firmware-nonfree \
