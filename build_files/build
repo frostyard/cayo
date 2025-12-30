@@ -69,9 +69,16 @@ apt-get install -y -t "${codename}-backports" \
 
 # Install Common Packages
 apt-get install -y \
+	bc \
+	bzip2 \
+	bzip2-doc \
+	cpio \
 	duperemove \
+	file \
 	fwupd \
 	hdparm \
+	incus-agent \
+	jq \
 	less \
 	locales \
 	man-db \
@@ -81,20 +88,28 @@ apt-get install -y \
   pipewire \
 	pciutils \
 	pcp-zeroconf \
+	picocom \
+	psmisc \
 	openssh-client \
 	openssh-server \
 	qemu-guest-agent \
 	samba \
 	smartmontools \
 	smbclient \
+	socat \
+	tar \
 	tmux \
 	tuned \
 	tuned-ppd \
+	unzip \
+	usbip \
 	usbutils \
 	vim \
 	wireguard-tools \
 	xdg-dbus-proxy \
-	xdg-user-dirs
+	xdg-user-dirs \
+	zip \
+	zstd
 
 # Get package list
 mkdir -p /usr/share/cayo
