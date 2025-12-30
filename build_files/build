@@ -79,10 +79,12 @@ apt-get install -y \
 	bzip2 \
 	bzip2-doc \
 	cpio \
+	distrobox \
 	docker-buildx \
 	docker-compose \
 	duperemove \
 	file \
+	firewalld \
 	fwupd \
 	hdparm \
 	incus-agent \
@@ -90,6 +92,7 @@ apt-get install -y \
 	less \
 	locales \
 	man-db \
+	mergerfs \
 	nano \
 	nfs-common \
 	nfs-kernel-server \
@@ -103,10 +106,12 @@ apt-get install -y \
 	openssh-client \
 	openssh-server \
 	qemu-guest-agent \
+	rclone \
 	samba \
+	skopeo \
 	smartmontools \
 	smbclient \
-	skopeo \
+	snapraid \
 	socat \
 	tar \
 	tmux \
@@ -121,6 +126,14 @@ apt-get install -y \
 	xdg-user-dirs \
 	zip \
 	zstd
+
+# TODO: add packages
+# cockpit and friends
+# dockhand quadlet?
+# tailscale (external repo)
+# incus and friends
+# libvirt and friends
+# zfs & sanoid/syncoid
 
 # Get package list
 mkdir -p /usr/share/cayo
