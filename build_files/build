@@ -70,9 +70,12 @@ apt-get install -y -t "${codename}-backports" \
 # Install Common Packages
 apt-get install -y \
 	bc \
+	buildah \
 	bzip2 \
 	bzip2-doc \
 	cpio \
+	docker-buildx \
+	docker-compose \
 	duperemove \
 	file \
 	fwupd \
@@ -89,6 +92,8 @@ apt-get install -y \
 	pciutils \
 	pcp-zeroconf \
 	picocom \
+	podman \
+	podman-docker \
 	psmisc \
 	openssh-client \
 	openssh-server \
@@ -96,6 +101,7 @@ apt-get install -y \
 	samba \
 	smartmontools \
 	smbclient \
+	skopeo \
 	socat \
 	tar \
 	tmux \
