@@ -1,0 +1,5 @@
+# default Samba presets specific to Cayo
+disable nmbd.service
+disable samba-ad-dc.service
+disable smbd.service
+disable winbind.service

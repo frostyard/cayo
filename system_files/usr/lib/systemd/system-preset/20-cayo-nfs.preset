@@ -1,0 +1,8 @@
+# default NFS presets specific to Cayo
+disable nfs-blkmap.service
+disable nfs-client.target
+disable nfs-idmapd.service
+disable nfs-mountd.service
+disable nfs-server.service
+disable nfsdcld.service
+disable rpcbind.service

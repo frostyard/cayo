@@ -1,0 +1,4 @@
+enable NetworkManager.service
+disable ModemManager.service
+disable systemd-networkd-wait-online.service
+disable wpa_supplicant.service

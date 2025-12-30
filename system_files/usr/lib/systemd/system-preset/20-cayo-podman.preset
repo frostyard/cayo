@@ -1,0 +1,12 @@
+# default presets specific to Cayo
+disable podman-auto-update.service
+disable podman-auto-update.timer
+disable podman-clean-transient.service
+disable podman-restart.service
+disable podman.service
+disable podman.socket
+# to enable podman for most use cases
+# systemctl enable podman.socket
+# systemctl enable podman-restart.timer
+# systemctl enable podman-auto-update.service
+# systemctl enable podman-clean-transient.service
