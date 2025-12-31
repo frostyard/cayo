@@ -2,11 +2,6 @@
 
 set -ouex pipefail
 
-# Set default hostname
-# ... this may not be needed depending on installer method, but it's a decent default
-echo "cayo" > /etc/hostname
-chmod 0644 /etc/hostname
-
 # Repository setup
 mkdir -p /etc/apt/keyrings
 sed -i 's/main/main contrib non-free non-free-firmware/' /etc/apt/sources.list.d/debian.sources
